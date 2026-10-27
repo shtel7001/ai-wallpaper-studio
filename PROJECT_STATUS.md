@@ -1,9 +1,28 @@
-# AI Wallpaper Studio — prototype
+# AI Wallpaper Studio — Development status
 
-This is a **non-AI prototype**: gradient wallpaper generator, device-size selection, PNG export, and WebGPU capability check.
+## Implemented
+- Responsive mobile wallpaper editor, gradients and styles
+- Local photo import, cover crop, color overlays
+- Phone resolution selection and PNG export
+- WebGPU availability check and extended browser hardware diagnostics
+- GitHub Pages deployment workflow
 
-## Next milestone
-Integrate a properly licensed browser-side text-to-image model, verify mobile memory usage, speed, and model hosting bandwidth. Do not advertise AI image generation as working until tested.
+## Not yet implemented
+- Actual text-to-image model inference in the browser
+- Mobile AI model download, caching and loading progress
+- Validated support on Galaxy/iPhone devices
 
-## Local run
-Serve this directory via any static HTTPS hosting provider. No API key required for current features.
+## Browser-side AI research
+Microsoft's ONNX Runtime Web SD-Turbo sample demonstrates real local inference on suitable WebGPU hardware:
+https://github.com/microsoft/onnxruntime-inference-examples/tree/main/js/sd-turbo
+
+ONNX Runtime Web WebGPU documentation:
+https://onnxruntime.ai/docs/tutorials/web/ep-webgpu.html
+
+This example is not a drop-in mobile solution. The model weights are large and GPU memory may exceed phone limits. Before integrating, confirm model license and commercial usage, mobile memory requirements, model hosting bandwidth and CORS. A public zero-cost unlimited service cannot be guaranteed.
+
+## Deployment
+GitHub Actions workflow deploys the static files when GitHub Pages Source is set to GitHub Actions. Check Actions and Pages for deployment status.
+
+## Next implementation milestone
+Select a verified compact image-generation model that can run on a target Android phone, then integrate and measure actual inference. Until then, do not claim AI image generation is working.
